@@ -14,6 +14,6 @@ export class GetQuestionBySlugController {
       throw new BadRequestException()
     }
 
-    return { questions: QuestionPresenter.toHTTP(result.value.question) }
+    return { question: QuestionPresenter.toHTTP(result.value.question) }
   }
 }
