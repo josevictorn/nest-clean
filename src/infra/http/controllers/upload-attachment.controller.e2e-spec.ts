@@ -31,10 +31,14 @@ describe('Upload attachment (E2E)', () => {
     const accessToken = jwt.sign({ sub: user.id.toString() })
 
     const response = await request(app.getHttpServer())
-      .get('/attachments')
+      .post('/attachments')
       .set('Authorization', `Bearer ${accessToken}`)
       .attach('file', './test/e2e/sample-upload.png')
 
-    expect(response.statusCode).toBe(200)
+    console.log(response.body)
+    expect(response.statusCode).toBe(201)
+    expect(response.body).toEqual({
+      attachmentId: expect.any(String),
+    })
   })
 })
