@@ -2,7 +2,6 @@ import {
   Controller,
   FileTypeValidator,
   MaxFileSizeValidator,
-  Param,
   ParseFilePipe,
   Post,
   UploadedFile,
@@ -26,5 +25,7 @@ export class UploadAttachmentsController {
       }),
     )
     file: Express.Multer.File,
-  ) {}
+  ) {
+    console.log(file)
+  }
 }
