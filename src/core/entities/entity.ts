@@ -22,6 +22,6 @@ export abstract class Entity<Props> {
       return true
     }
 
-    return true
+    return false
   }
 }
